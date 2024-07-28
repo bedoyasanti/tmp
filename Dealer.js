@@ -1,0 +1,331 @@
+import * as rules from './Rules.js'
+
+function validarBajarse(player){
+    const H = player.cards;
+    const Hand = JSON.parse(JSON.stringify(H));
+
+    if (rules.pinta(Hand)){
+        for (let i = 0; i < 10; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+
+    if (rules.septima_1_7(Hand)){
+        for (let i = 0; i < 7; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.septima_4_10(Hand)){
+        for (let i = 3; i < 10; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+
+    if (rules.sexta_1_6(Hand)){
+        for (let i = 0; i < 6; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.sexta_4_9(Hand)){
+        for (let i = 3; i < 9; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.sexta_5_10(Hand)){
+        for (let i = 4; i < 10; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+
+    if (rules.quinta_1_5(Hand)){
+        for (let i = 0; i < 5; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.quinta_4_8(Hand)){
+        for (let i = 3; i < 8; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.quinta_5_9(Hand)){
+        for (let i = 4; i < 9; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.quinta_6_10(Hand)){
+        for (let i = 5; i < 10; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+
+    if (rules.cuarta_1_4(Hand)){
+        for (let i = 0; i < 4; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.cuarta_4_7(Hand)){
+        for (let i = 3; i < 7; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.cuarta_5_8(Hand)){
+        for (let i = 4; i < 8; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.cuarta_6_9(Hand)){
+        for (let i = 5; i < 9; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.cuarta_7_10(Hand)){
+        for (let i = 6; i < 10; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+
+    if (rules.terna_1_3(Hand)){
+        for (let i = 0; i < 3; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.terna_4_6(Hand)){
+        for (let i = 3; i < 6; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.terna_5_7(Hand)){
+        for (let i = 4; i < 7; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.terna_6_8(Hand)){
+        for (let i = 5; i < 8; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.terna_7_9(Hand)){
+        for (let i = 6; i < 9; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+    if (rules.terna_8_10(Hand)){
+        for (let i = 7; i < 10; i++){
+            Hand[i].suit = "Replaced";
+        };
+    };
+
+
+    if (Hand.some(carta => carta.suit !== "Replaced")){
+        return false;
+    };
+    return true;
+};
+
+function validarTocar(player,card1,card2=null){
+    if ((card2 !== null) && (card1.rank + card2.rank > 5)){return false}
+    else if ((card2 === null) && (card1.rank > 5)){return false}
+    else{
+        const H = player.cards;
+        const Hand = JSON.parse(JSON.stringify(H));
+        if (card2 !== null){
+            Hand[8].suit = "Replaced";
+            Hand[9].suit = "Replaced";
+        }
+        else if (card2 === null){
+            Hand[9].suit = "Replaced";
+        };
+    };
+    if (card2 === null){
+
+        if (rules.septima_1_7(Hand)){
+            for (let i = 0; i < 7; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.sexta_1_6(Hand)){
+            for (let i = 0; i < 6; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.sexta_4_9(Hand)){
+            for (let i = 3; i < 9; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.quinta_1_5(Hand)){
+            for (let i = 0; i < 5; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.quinta_4_8(Hand)){
+            for (let i = 3; i < 8; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.quinta_5_9(Hand)){
+            for (let i = 4; i < 9; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.cuarta_1_4(Hand)){
+            for (let i = 0; i < 4; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.cuarta_4_7(Hand)){
+            for (let i = 3; i < 7; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.cuarta_5_8(Hand)){
+            for (let i = 4; i < 8; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.cuarta_6_9(Hand)){
+            for (let i = 5; i < 9; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.terna_1_3(Hand)){
+            for (let i = 0; i < 3; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_4_6(Hand)){
+            for (let i = 3; i < 6; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_5_7(Hand)){
+            for (let i = 4; i < 7; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_6_8(Hand)){
+            for (let i = 5; i < 8; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_7_9(Hand)){
+            for (let i = 6; i < 9; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    }
+    else{
+        if (rules.septima_1_7(Hand)){
+            for (let i = 0; i < 7; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.sexta_1_6(Hand)){
+            for (let i = 0; i < 6; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.quinta_1_5(Hand)){
+            for (let i = 0; i < 5; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.quinta_4_8(Hand)){
+            for (let i = 3; i < 8; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.cuarta_1_4(Hand)){
+            for (let i = 0; i < 4; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.cuarta_4_7(Hand)){
+            for (let i = 3; i < 7; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.cuarta_5_8(Hand)){
+            for (let i = 4; i < 8; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+    
+        if (rules.terna_1_3(Hand)){
+            for (let i = 0; i < 3; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_4_6(Hand)){
+            for (let i = 3; i < 6; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_5_7(Hand)){
+            for (let i = 4; i < 7; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    
+        if (rules.terna_6_8(Hand)){
+            for (let i = 5; i < 8; i++){
+                Hand[i].suit = "Replaced";
+            };
+        };
+    };
+    
+    if (Hand.some(carta => carta.suit !== "Replaced")){
+        return false;
+    };
+    return true;
+};
