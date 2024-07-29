@@ -484,10 +484,10 @@ function comprobarManos(winner, otros, tocar = 0){
 
         for (let j = 0; j < 10; j++){
             if (Hand[j].suit !== "Replaced"){
-                pts += Hand[j].rank
+                pts += Hand[j].rank;
             };
         };
 
-        player.points += pts
+        player.points += pts;
     };
 };
